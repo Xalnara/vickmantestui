@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vickman's Glorious UI</title>
+  <style>
+    :root {
+      --bg: #23293a;
+      --panel: #f3f3f3;
+      --text: #111;
+      --muted: #555;
+      --line: #cfcfcf;
+      --button: #000;
+      --button-text: #fff;
+      --button-hover: #222;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #262d40 0%, #2b3044 45%, #d99261 100%);
+      color: var(--text);
+      padding: 16px;
+    }
+
+    .page {
+      max-width: 1150px;
+      margin: 0 auto;
+      background: var(--panel);
+      min-height: calc(100vh - 32px);
+      padding: 48px 36px 56px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2.2rem;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 0 0 36px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      margin-bottom: 46px;
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 1.9rem;
+      line-height: 1.2;
+    }
+
+    .media-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+      border: 1px dashed #9ec7cd;
+      padding: 22px;
+      background: #f7f7f7;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card a.preview-link {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .preview-image,
+    .video-frame {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--line);
+      background: #ddd;
+    }
+
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      border: none;
+      background: #ccc;
+    }
+
+    .button-row {
+      margin-top: 10px;
+    }
+
+    button.copy-btn,
+    a.copy-btn {
+      appearance: none;
+      border: none;
+      background: var(--button);
+      color: var(--button-text);
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button.copy-btn:hover,
+    a.copy-btn:hover {
+      background: var(--button-hover);
+    }
+
+    .status {
+      margin-top: 8px;
+      min-height: 1.2em;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #999;
+      margin: 36px 0 20px;
+    }
+
+    .hidden-imports {
+      display: none;
+    }
+
+    @media (max-width: 850px) {
+      .page {
+        padding: 28px 18px 36px;
+      }
+
+      .media-row {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Vickman's Glorious UI</h1>
+    <p class="subtitle">dont ask the streamer what horizontal and vertical is pls.</p>
+
+    <section class="section">
+      <h2>1080p Horizontal layout</h2>
+
+      <div class="media-row">
+        <div class="card">
+          <a class="preview-link" href="images/horizontal-layout-full.png" target="_blank" rel="noopener noreferrer">
+            <img
+              class="preview-image"
+              src="images/horizontal-layout-preview.png"
+              alt="1080p Horizontal layout preview"
+            />
+          </a>
+
+          <div class="button-row">
+            <button
+              class="copy-btn"
+              type="button"
+              data-copy-target="horizontal-import"
+              data-status-target="horizontal-status"
+            >
+              Copy Import
+            </button>
+          </div>
+          <div class="status" id="horizontal-status"></div>
+        </div>
+
+        <div class="card">
+          <iframe
+            class="video-frame"
+            src="https://www.youtube.com/embed/YOUR_HORIZONTAL_VIDEO_ID"
+            title="Horizontal layout video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="section">
+      <h2>1080p Vertical layout</h2>
+
+      <div class="media-row">
+        <div class="card">
+          <a class="preview-link" href="images/vertical-layout-full.png" target="_blank" rel="noopener noreferrer">
+            <img
+              class="preview-image"
+              src="images/vertical-layout-preview.png"
+              alt="1080p Vertical layout preview"
+            />
+          </a>
+
+          <div class="button-row">
+            <button
+              class="copy-btn"
+              type="button"
+              data-copy-target="vertical-import"
+              data-status-target="vertical-status"
+            >
+              Copy Import
+            </button>
+          </div>
+          <div class="status" id="vertical-status"></div>
+        </div>
+
+        <div class="card">
+          <iframe
+            class="video-frame"
+            src="https://www.youtube.com/embed/YOUR_VERTICAL_VIDEO_ID"
+            title="Vertical layout video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="hidden-imports">
+      <textarea id="horizontal-import">PASTE_HORIZONTAL_IMPORT_STRING_HERE</textarea>
+      <textarea id="vertical-import">PASTE_VERTICAL_IMPORT_STRING_HERE</textarea>
+    </div>
+  </main>
+
+  <script>
+    async function copyFromTarget(targetId, statusId, buttonEl) {
+      const source = document.getElementById(targetId);
+      const status = document.getElementById(statusId);
+      const originalLabel = buttonEl.textContent;
+
+      if (!source) {
+        if (status) status.textContent = "Import text not found.";
+        return;
+      }
+
+      const text = source.value.trim();
+      if (!text) {
+        if (status) status.textContent = "No import text added yet.";
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(text);
+        buttonEl.textContent = "Copied";
+        if (status) status.textContent = "Import copied to clipboard.";
+
+        setTimeout(() => {
+          buttonEl.textContent = originalLabel;
+          if (status) status.textContent = "";
+        }, 1600);
+      } catch (err) {
+        if (status) {
+          status.textContent = "Copy failed. Try selecting from source manually.";
+        }
+      }
+    }
+
+    document.querySelectorAll(".copy-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        copyFromTarget(
+          button.dataset.copyTarget,
+          button.dataset.statusTarget,
+          button
+        );
+      });
+    });
+  </script>
+</body>
+</html>
