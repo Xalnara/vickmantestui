@@ -29,7 +29,7 @@
     }
 
     .page {
-      max-width: 1150px;
+      max-width: 1100px;
       margin: 0 auto;
       background: var(--panel);
       min-height: calc(100vh - 32px);
@@ -39,7 +39,6 @@
     h1 {
       margin: 0 0 8px;
       font-size: 2.2rem;
-      line-height: 1.1;
     }
 
     .subtitle {
@@ -49,60 +48,43 @@
     }
 
     .section {
-      margin-bottom: 46px;
+      margin-bottom: 40px;
     }
 
     .section h2 {
       margin: 0 0 18px;
-      font-size: 1.9rem;
-      line-height: 1.2;
+      font-size: 1.8rem;
     }
 
-    .media-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      align-items: start;
-      border: 1px dashed #9ec7cd;
+    .profile-box {
+      border: 1px solid var(--line);
+      background: #f8f8f8;
       padding: 22px;
-      background: #f7f7f7;
     }
 
-    .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+    .profile-content {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      align-items: start;
     }
 
-    .card a.preview-link {
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .preview-image,
-    .video-frame {
+    .preview-image {
       width: 100%;
-      max-width: 380px;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
       display: block;
       border: 1px solid var(--line);
       background: #ddd;
     }
 
-    .video-frame {
-      aspect-ratio: 16 / 9;
-      border: none;
-      background: #ccc;
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      padding-top: 8px;
     }
 
-    .button-row {
-      margin-top: 10px;
-    }
-
-    button.copy-btn,
-    a.copy-btn {
+    .copy-btn {
       appearance: none;
       border: none;
       background: var(--button);
@@ -110,48 +92,32 @@
       padding: 10px 16px;
       cursor: pointer;
       font-size: 0.95rem;
-      text-decoration: none;
-      display: inline-block;
     }
 
-    button.copy-btn:hover,
-    a.copy-btn:hover {
+    .copy-btn:hover {
       background: var(--button-hover);
     }
 
     .status {
-      margin-top: 8px;
-      min-height: 1.2em;
-      font-size: 0.9rem;
+      margin-top: 14px;
       color: var(--muted);
-      text-align: center;
+      font-size: 0.9rem;
+      min-height: 1.2em;
     }
 
     hr {
       border: 0;
       border-top: 1px solid #999;
-      margin: 36px 0 20px;
+      margin: 32px 0;
     }
 
-    .hidden-imports {
-      display: none;
-    }
-
-    @media (max-width: 850px) {
+    @media (max-width: 800px) {
       .page {
         padding: 28px 18px 36px;
       }
 
-      .media-row {
+      .profile-content {
         grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .section h2 {
-        font-size: 1.5rem;
       }
     }
   </style>
@@ -162,39 +128,36 @@
     <p class="subtitle">dont ask the streamer what horizontal and vertical is pls.</p>
 
     <section class="section">
-      <h2>1080p Horizontal layout</h2>
-
-      <div class="media-row">
-        <div class="card">
-          <a class="preview-link" href="images/horizontal-layout-full.png" target="_blank" rel="noopener noreferrer">
+      <h2>Vertical Profile</h2>
+      <div class="profile-box">
+        <div class="profile-content">
+          <div>
             <img
               class="preview-image"
-              src="images/horizontal-layout-preview.png"
-              alt="1080p Horizontal layout preview"
+              src="images/vertical-preview.png"
+              alt="Vertical profile preview"
             />
-          </a>
-
-          <div class="button-row">
-            <button
-              class="copy-btn"
-              type="button"
-              data-copy-target="horizontal-import"
-              data-status-target="horizontal-status"
-            >
-              Copy Import
-            </button>
           </div>
-          <div class="status" id="horizontal-status"></div>
-        </div>
 
-        <div class="card">
-          <iframe
-            class="video-frame"
-            src="https://www.youtube.com/embed/YOUR_HORIZONTAL_VIDEO_ID"
-            title="Horizontal layout video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+          <div>
+            <div class="button-group">
+              <button
+                class="copy-btn"
+                onclick="copyImportFromFile('imports/vertical-danders.txt', this, 'vertical-status')"
+              >
+                Danders Copy Button
+              </button>
+
+              <button
+                class="copy-btn"
+                onclick="copyImportFromFile('imports/vertical-unhalted.txt', this, 'vertical-status')"
+              >
+                Unhalted Copy Button
+              </button>
+            </div>
+
+            <div class="status" id="vertical-status"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -202,91 +165,72 @@
     <hr />
 
     <section class="section">
-      <h2>1080p Vertical layout</h2>
-
-      <div class="media-row">
-        <div class="card">
-          <a class="preview-link" href="images/vertical-layout-full.png" target="_blank" rel="noopener noreferrer">
+      <h2>Horizontal Profile</h2>
+      <div class="profile-box">
+        <div class="profile-content">
+          <div>
             <img
               class="preview-image"
-              src="images/vertical-layout-preview.png"
-              alt="1080p Vertical layout preview"
+              src="images/horizontal-preview.png"
+              alt="Horizontal profile preview"
             />
-          </a>
-
-          <div class="button-row">
-            <button
-              class="copy-btn"
-              type="button"
-              data-copy-target="vertical-import"
-              data-status-target="vertical-status"
-            >
-              Copy Import
-            </button>
           </div>
-          <div class="status" id="vertical-status"></div>
-        </div>
 
-        <div class="card">
-          <iframe
-            class="video-frame"
-            src="https://www.youtube.com/embed/YOUR_VERTICAL_VIDEO_ID"
-            title="Vertical layout video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+          <div>
+            <div class="button-group">
+              <button
+                class="copy-btn"
+                onclick="copyImportFromFile('imports/horizontal-danders.txt', this, 'horizontal-status')"
+              >
+                Danders Copy Button
+              </button>
+
+              <button
+                class="copy-btn"
+                onclick="copyImportFromFile('imports/horizontal-unhalted.txt', this, 'horizontal-status')"
+              >
+                Unhalted Copy Button
+              </button>
+            </div>
+
+            <div class="status" id="horizontal-status"></div>
+          </div>
         </div>
       </div>
     </section>
-
-    <div class="hidden-imports">
-      <textarea id="horizontal-import">PASTE_HORIZONTAL_IMPORT_STRING_HERE</textarea>
-      <textarea id="vertical-import">PASTE_VERTICAL_IMPORT_STRING_HERE</textarea>
-    </div>
   </main>
 
   <script>
-    async function copyFromTarget(targetId, statusId, buttonEl) {
-      const source = document.getElementById(targetId);
+    async function copyImportFromFile(filePath, button, statusId) {
       const status = document.getElementById(statusId);
-      const originalLabel = buttonEl.textContent;
-
-      if (!source) {
-        if (status) status.textContent = "Import text not found.";
-        return;
-      }
-
-      const text = source.value.trim();
-      if (!text) {
-        if (status) status.textContent = "No import text added yet.";
-        return;
-      }
+      const originalText = button.textContent;
 
       try {
+        const response = await fetch(filePath);
+        if (!response.ok) throw new Error("Failed to load import file");
+
+        const text = (await response.text()).trim();
+        if (!text) throw new Error("Import file is empty");
+
         await navigator.clipboard.writeText(text);
-        buttonEl.textContent = "Copied";
+
+        button.textContent = "Copied";
         if (status) status.textContent = "Import copied to clipboard.";
 
         setTimeout(() => {
-          buttonEl.textContent = originalLabel;
+          button.textContent = originalText;
           if (status) status.textContent = "";
-        }, 1600);
-      } catch (err) {
-        if (status) {
-          status.textContent = "Copy failed. Try selecting from source manually.";
-        }
+        }, 1500);
+      } catch (error) {
+        button.textContent = "Failed";
+        if (status) status.textContent = "Could not copy import.";
+        setTimeout(() => {
+          button.textContent = originalText;
+          if (status) status.textContent = "";
+        }, 1500);
+        console.error(error);
       }
     }
-
-    document.querySelectorAll(".copy-btn").forEach((button) => {
-      button.addEventListener("click", () => {
-        copyFromTarget(
-          button.dataset.copyTarget,
-          button.dataset.statusTarget,
-          button
-        );
-      });
-    });
   </script>
 </body>
 </html>
